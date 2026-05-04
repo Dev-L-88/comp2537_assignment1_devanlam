@@ -156,19 +156,18 @@ app.get('/logout', (req, res) => {
     res.redirect('/');
 })
 
-// 8. 404 Error
-app.get("*", (req, res) => {
-    res.status(404);
-    res.send("Page not found - 404");
-});
-
-
 client.connect().then(() => {
     console.log("Successfully connected to MongoDB");
 }).catch(err => {
     console.error("MongoDB connection error:", err);
 });
 
+// 8. 404 Error
+app.get("/*", (req, res) => {
+    res.status(404);
+    res.send("Page not found - 404");
+});
+
 app.listen(port, () => {
-    console.log("Node application listening on port " + `http://localhost:${port}`);
+    console.log("Node application listening on port " + port);
 });
