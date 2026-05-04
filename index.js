@@ -163,7 +163,7 @@ client.connect().then(() => {
 });
 
 // 8. 404 Error
-app.get("/*", (req, res) => {
+app.get("/:universal", (req, res) => {
     res.status(404);
     res.send("Page not found - 404");
 });
