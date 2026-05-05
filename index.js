@@ -137,7 +137,7 @@ app.post('/loginSubmit', async (req, res) => {
 // 4. Members Area
 app.get('/members', (req, res) => {
     if (!req.session.authenticated) {
-        res.redirect('/');
+        res.redirect('/login');
         return;
     }
     
